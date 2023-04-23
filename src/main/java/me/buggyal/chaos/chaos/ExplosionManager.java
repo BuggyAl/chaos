@@ -1,0 +1,24 @@
+package me.buggyal.chaos.chaos;
+
+import me.buggyal.chaos.ChaosManager;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.ExplosionPrimeEvent;
+
+public class ExplosionManager implements Listener {
+
+    @EventHandler
+    public void onExplode(ExplosionPrimeEvent event) {
+        if (!ChaosManager.isStarted()) { return; }
+
+        if (ChaosManager.startTNT.contains(event.getEntity().getUniqueId())) {
+            event.setRadius(event.getRadius() * 3);
+        } else if (Nuke.getEntityIds().contains(event.getEntity().getUniqueId())) {
+            event.setRadius((event.getRadius() * 10));
+        } else {
+            event.setRadius(event.getRadius() * 2);
+        }
+
+    }
+
+}
