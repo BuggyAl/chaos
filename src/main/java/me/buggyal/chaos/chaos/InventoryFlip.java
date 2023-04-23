@@ -12,7 +12,7 @@ public class InventoryFlip implements ChaosEvent {
 
     @Override
     public void run(Player player) {
-        // randomly switch items in the player's inventory
+
         Inventory inventory = player.getInventory();
         ItemStack[] contents = inventory.getContents();
         Collections.shuffle(Arrays.asList(contents));
