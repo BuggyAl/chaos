@@ -47,7 +47,7 @@ public class ChaosManager implements Listener {
                     event.run(player);
                 }
             }
-        }, 0, 20L * 10L);
+        }, 20L * 5L, 20L * 10L);
 
     }
 
@@ -68,7 +68,7 @@ public class ChaosManager implements Listener {
                     }
                     beginChaos();
                 }
-            }.runTaskLater(Chaos.getInstance(), 20L * 10L);
+            }.runTaskLater(Chaos.getInstance(), 20L * 5L);
         }
     }
 

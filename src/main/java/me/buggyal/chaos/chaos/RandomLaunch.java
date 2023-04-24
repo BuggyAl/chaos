@@ -9,9 +9,9 @@ public class RandomLaunch implements ChaosEvent {
     @Override
     public void run(Player player) {
         Vector velocity = player.getVelocity();
-        velocity.setX(random.nextInt(41) - 20);
-        velocity.setY(random.nextInt(41) - 20);
-        velocity.setZ(random.nextInt(41) - 20);
+        velocity.setX(random.nextInt(10) - 5);
+        velocity.setY(random.nextInt(10));
+        velocity.setZ(random.nextInt(10) - 5);
         player.setVelocity(velocity);
     }
 
