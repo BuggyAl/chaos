@@ -1,6 +1,5 @@
 package me.buggyal.chaos.chaos;
 
-import com.sun.tools.javac.jvm.Items;
 import me.buggyal.chaos.ChaosEvent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
