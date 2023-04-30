@@ -47,7 +47,7 @@ public class ChaosManager implements Listener {
                     event.run(player);
                 }
             }
-        }, 20L * 5L, 20L * 10L);
+        }, 20L * 60L, 20L * 30L);
 
     }
 
