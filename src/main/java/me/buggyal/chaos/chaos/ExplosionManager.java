@@ -12,11 +12,9 @@ public class ExplosionManager implements Listener {
     public void onExplode(ExplosionPrimeEvent event) {
         if (!ChaosManager.isStarted()) { return; }
 
-        TNTPrimed tntEntity = (TNTPrimed) event.getEntity();
-
         if (ChaosManager.startTNT.contains(event.getEntity().getUniqueId())) {
             event.setRadius(event.getRadius() * 3);
-        } else if (Nuke.nuke.equals(tntEntity)) {
+        } else if (Nuke.nuke.equals(event.getEntity())) {
             event.setRadius(event.getRadius() * 5);
         } else {
             event.setRadius(event.getRadius() * 2);
