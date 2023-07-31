@@ -1,7 +1,7 @@
 name: chaos
 version: '${project.version}'
 main: me.buggyal.chaos.Chaos
-api-version: 1.19
+api-version: 1.20
 authors: [BuggyAl]
 description: A plugin to challenge 
 website: https://github.com/BuggyAl
