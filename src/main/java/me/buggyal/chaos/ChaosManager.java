@@ -1,5 +1,6 @@
 package me.buggyal.chaos;
 
+import me.buggyal.chaos.chaos.Nuke;
 import me.buggyal.chaos.util.Chat;
 import org.bukkit.GameMode;
 import org.bukkit.entity.EntityType;
@@ -47,6 +48,11 @@ public class ChaosManager implements Listener {
                     event.run(player);
                 }
             }
+
+            if (event instanceof Nuke) {
+                Chat.broadcast("&8<&6!&8> &4&lDANGER &8<&6!&8> &cNuke detected! Take cover!");
+            }
+
         }, 20L * 60L, 20L * 30L);
 
     }
