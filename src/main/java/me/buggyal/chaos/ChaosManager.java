@@ -1,6 +1,7 @@
 package me.buggyal.chaos;
 
 import me.buggyal.chaos.chaos.Nuke;
+import me.buggyal.chaos.chaos.TrollResourcePack;
 import me.buggyal.chaos.util.Chat;
 import org.bukkit.GameMode;
 import org.bukkit.entity.EntityType;
@@ -30,6 +31,15 @@ public class ChaosManager implements Listener {
 
     public static void beginChaos() {
         List<ChaosEvent> chaosEvents = new ArrayList<>();
+
+        // DEBUG SPECIFIC EVENT
+//        try {
+//            chaosEvents.add(TrollResourcePack.class.getDeclaredConstructor().newInstance());
+//        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+//            throw new RuntimeException(e);
+//        }
+
+
         Reflections reflections = new Reflections(Chaos.getInstance().getClass().getPackage().getName());
         for (Class<?> clazz : reflections.getSubTypesOf(ChaosEvent.class)) {
             try {
@@ -38,6 +48,14 @@ public class ChaosManager implements Listener {
                      NoSuchMethodException e) {
                 e.printStackTrace();
             }
+        }
+
+        long initialDelaySeconds = 60;
+        long delaySeconds = 30;
+
+        if (Chaos.DEV_MODE) {
+            initialDelaySeconds = 5;
+            delaySeconds = 10;
         }
 
         Chaos.getInstance().getServer().getScheduler().scheduleSyncRepeatingTask(Chaos.getInstance(), () -> {
@@ -53,7 +71,7 @@ public class ChaosManager implements Listener {
                 Chat.broadcast("&8<&6!&8> &4&lDANGER &8<&6!&8> &cNuke detected! Take cover!");
             }
 
-        }, 20L * 60L, 20L * 30L);
+        }, 20L * initialDelaySeconds, 20L * delaySeconds);
 
     }
 
@@ -62,6 +80,12 @@ public class ChaosManager implements Listener {
         if (chatEvent.getMessage().equalsIgnoreCase("subscribe to wheateneye") && !started) {
             started = true;
             chatEvent.setMessage("subscribe to BuggyAl");
+
+            if (Chaos.DEV_MODE) {
+                beginChaos();
+                return;
+            }
+
             new BukkitRunnable() {
                 @Override
                 public void run() {

@@ -14,7 +14,7 @@ public class ExplosionManager implements Listener {
 
         if (ChaosManager.startTNT.contains(event.getEntity().getUniqueId())) {
             event.setRadius(event.getRadius() * 3);
-        } else if (Nuke.nuke.equals(event.getEntity())) {
+        } else if (Nuke.nuke != null && Nuke.nuke.equals(event.getEntity())) {
             event.setRadius(event.getRadius() * 5);
         } else {
             event.setRadius(event.getRadius() * 2);

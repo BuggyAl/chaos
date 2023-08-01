@@ -10,6 +10,8 @@ import java.lang.reflect.InvocationTargetException;
 
 public final class Chaos extends JavaPlugin {
 
+    public static final boolean DEV_MODE = true;
+
     private static Chaos instance;
 
     public static Chaos getInstance() {
