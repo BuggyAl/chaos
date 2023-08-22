@@ -13,7 +13,7 @@ public class TrollResourcePack implements ChaosEvent, Listener {
     @Override
     public void run(Player player) {
         if (isLoaded) { return; }
-        player.setResourcePack("https://www.dropbox.com/scl/fo/4mr20o08njcl3qnxw1k0e/h?rlkey=fmkps25prfobvozvpqtxv8iz5&dl=1");
+        player.setResourcePack("https://texture-packs.com/wp-content/uploads/2022/04/Moving-Blocks-1.19.X.zip");
     }
 
     @EventHandler
