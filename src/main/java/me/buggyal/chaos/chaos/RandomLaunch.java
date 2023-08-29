@@ -15,6 +15,7 @@ public class RandomLaunch implements ChaosEvent {
         velocity.setY(random.nextInt(5));
         velocity.setZ(random.nextInt(5) - 2.5);
         player.setVelocity(velocity);
+        player.getInventory().addItem(new ItemStack(Material.WATER_BUCKET));
     }
 
 }

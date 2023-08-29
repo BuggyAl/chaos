@@ -10,7 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public final class Chaos extends JavaPlugin {
 
-    public static final boolean DEV_MODE = true;
+    public static final boolean DEV_MODE = false;
 
     private static Chaos instance;
 

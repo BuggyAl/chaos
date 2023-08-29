@@ -26,7 +26,7 @@ public class RandomEntity implements ChaosEvent {
                 e != EntityType.INTERACTION && e != EntityType.ITEM_DISPLAY && e != EntityType.ITEM_FRAME &&
                 e != EntityType.LEASH_HITCH && e != EntityType.MARKER && e != EntityType.PAINTING &&
                 e != EntityType.PLAYER && e != EntityType.SPECTRAL_ARROW && e != EntityType.SPLASH_POTION &&
-                e != EntityType.TEXT_DISPLAY && e != EntityType.UNKNOWN;
+                e != EntityType.TEXT_DISPLAY && e != EntityType.PRIMED_TNT && e != EntityType.UNKNOWN;
     }
 
 }

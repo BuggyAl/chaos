@@ -3,5 +3,5 @@ version: '${project.version}'
 main: me.buggyal.chaos.Chaos
 api-version: 1.20
 authors: [BuggyAl]
-description: A plugin to challenge 
+description: A plugin developed for WheatenEye's video.
 website: https://github.com/BuggyAl

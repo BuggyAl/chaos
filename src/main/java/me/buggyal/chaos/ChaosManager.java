@@ -1,7 +1,6 @@
 package me.buggyal.chaos;
 
 import me.buggyal.chaos.chaos.Nuke;
-import me.buggyal.chaos.chaos.TrollResourcePack;
 import me.buggyal.chaos.util.Chat;
 import org.bukkit.GameMode;
 import org.bukkit.entity.EntityType;
@@ -10,6 +9,7 @@ import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.reflections.Reflections;
 
@@ -39,7 +39,6 @@ public class ChaosManager implements Listener {
 //            throw new RuntimeException(e);
 //        }
 
-
         Reflections reflections = new Reflections(Chaos.getInstance().getClass().getPackage().getName());
         for (Class<?> clazz : reflections.getSubTypesOf(ChaosEvent.class)) {
             try {
@@ -62,7 +61,7 @@ public class ChaosManager implements Listener {
             ChaosEvent event = chaosEvents.get(random.nextInt(chaosEvents.size()));
             Chat.sendConsoleMessage("&6[Chaos] &cRunning event: " + event.getClass().getSimpleName());
             for (Player player : Chaos.getInstance().getServer().getOnlinePlayers()) {
-                if (player.getGameMode() == GameMode.SURVIVAL) {
+                if (player.getGameMode() == GameMode.SURVIVAL && !isVanished(player)) {
                     event.run(player);
                 }
             }
@@ -73,6 +72,13 @@ public class ChaosManager implements Listener {
 
         }, 20L * initialDelaySeconds, 20L * delaySeconds);
 
+    }
+
+    private static boolean isVanished(Player player) {
+        for (MetadataValue meta : player.getMetadata("vanished")) {
+            if (meta.asBoolean()) return true;
+        }
+        return false;
     }
 
     @EventHandler
